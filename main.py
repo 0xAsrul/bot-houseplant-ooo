@@ -16,6 +16,9 @@ OUTPUT_PATH = "/output/entry.txt"
 
 
 def main() -> None:
+    assert 1 <= len(LINE) <= 120, "entry must be 1-120 characters"
+    assert "\n" not in LINE and "\r" not in LINE, "entry must be a single line"
+    assert LINE.strip(), "entry must not be only whitespace"
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(LINE + "\n")
 
